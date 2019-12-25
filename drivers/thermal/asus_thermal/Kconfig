@@ -1,0 +1,21 @@
+
+menuconfig ASUS_THERMAL
+	bool "ASUS thermal support"
+	default y
+	help
+	  Say Y here, and a list of supported nct7717u will be displayed.
+	  This option doesn't affect the kernel.
+
+	  If unsure, say Y.
+
+if ASUS_THERMAL
+
+config ASUS_NCT7717U_THERMAL
+	tristate "ASUS NCT7717 thermal driver"
+        default y
+	help
+	  Say Y here to enable support for batteries with thermal (I2C) chips.
+
+endif #if ASUS_THERMAL
+
+

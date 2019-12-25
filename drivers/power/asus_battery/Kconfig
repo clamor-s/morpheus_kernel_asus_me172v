@@ -1,0 +1,47 @@
+#
+#  Copyright (c) 2012, ASUSTek, Inc. All Rights Reserved.
+#  Written by wade chen Wade1_Chen@asus.com
+#
+#
+#
+# Input core configuration
+#
+menuconfig ASUS_BATTERY
+	bool "ASUS Battery support"
+	default y
+	help
+	  Say Y here, and a list of supported BQ27541 will be displayed.
+	  This option doesn't affect the kernel.
+
+	  If unsure, say Y.
+
+if ASUS_BATTERY
+
+config ASUS_BQ27520_BATTERY
+	tristate "ASUS BQ27520 battery driver"
+    default y
+	help
+	  Say Y here to enable support for batteries with BQ27520 (I2C) chips.
+
+config ASUS_UG31XX_BATTERY
+	tristate "ASUS UG31XX battery driver"
+	help
+	  Say Y here to enable support for batteries with UG31XX(I2C) chips.
+
+config ASUS_FAKE_BATTERY
+	tristate "ASUS fake battery driver"
+    default y
+	help
+	  Say Y here to enable support for batteries with fake battery.
+
+config ASUS_BAT_LOW_EVENT
+        bool "Support battery low event"
+        default n
+	help
+	  Say Y here, if you want to trigger battery low event by interrupt.
+
+	  If unsure, say N.
+
+endif #if ASUS_DRIVERS
+
+
